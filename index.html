@@ -3,28 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diogo Brito - Designer Gráfico</title>
+    <title>Diogo Brito - Designer Grafico</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="light-rays"></div>
+    <div class="light-glow"></div>
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-icons-left">
-            <a href="#"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="#"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="https://www.instagram.com/diogobritodesign/" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/diogobritodesign/" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="mailto:hello@diogobrito.design" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <path d="m22 7-10 6L2 7"></path>
+                </svg>
+            </a>
         </div>
-        
+
         <div class="nav-logo">
             <img src="images/logo.png" alt="Logo">
         </div>
-        
-        <div class="nav-menu">
-            <a href="#projetos">Projetos</a>
+
+        <div class="nav-menu" id="navMenu">
             <a href="#sobre">Sobre</a>
             <a href="#feedbacks">Feedbacks</a>
             <a href="#contato">Contato</a>
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
@@ -33,52 +62,173 @@
         <div class="profile-photo">
             <img src="images/profile.jpg" alt="Diogo Brito">
         </div>
-        
-        <div class="badge">
-            <span class="star">✦</span> Mais de 1500 artes desenvolvidas <span class="star">✦</span>
-        </div>
-        
-        <h1 class="hero-title">Design To Impress</h1>
-        
-        <p class="hero-subtitle">
-            Criando Marcas, Produtos<br>
-            e Experiências Digitais Únicas!
-        </p>
-        
-        <a href="#contato" class="btn-animated">
-            <span class="btn-text">Envie Uma Mensagem</span>
-            <span class="btn-border"></span>
-        </a>
-    </section>
 
-    <!-- PROJETOS (vazio por enquanto) -->
-    <section id="projetos" class="projetos">
-        <h2>Projetos</h2>
-        <p class="section-desc">Meu trabalho é uma combinação de pensamento inovador e soluções<br>práticas, garantindo que seja ao mesmo tempo único e eficaz.</p>
+        <div class="badge">
+            <span class="star">&#10022;</span>
+            <span class="badge-text">Mais de 1500 artes desenvolvidas</span>
+            <span class="star">&#10022;</span>
+        </div>
+
+        <h1 class="hero-title">Design To Impress</h1>
+
+        <p class="hero-subtitle">
+            Desenvolvendo sites que impressionam e vendem.<br>
+            Especialista em landing pages, e-commerce e websites<br>
+            do protótipo no Figma até o lançamento.
+        </p>
+
+        <a href="https://wa.me/5592993642260" target="_blank" class="btn-animated">
+            <span class="btn-text">Envie Uma Mensagem</span>
+        </a>
     </section>
 
     <!-- SOBRE -->
     <section id="sobre" class="sobre">
         <p class="sobre-line">Designer gráfico e web especializado</p>
         <p class="sobre-line">
-            em <span class="gradient-text pill">Wordpress</span> (com Elementor), 
-            <span class="gradient-text pill">Framer</span> e 
-            <span class="gradient-text pill">Shopify</span>.
+            em <span class="highlight-pill"><span>Wordpress</span></span> (com Elementor),
+            <span class="highlight-pill"><span>Framer</span></span> e
+            <span class="highlight-pill"><span>Shopify</span></span>.
         </p>
         <p class="sobre-line">
-            <span class="gradient-text years-pill">4 anos</span> de experiência.
+            <span class="highlight-pill"><span>4 anos</span></span> de experiência.
         </p>
+    </section>
+
+    <!-- O QUE EU FACO -->
+    <section class="what-i-do">
+        <div class="section-header">
+            <span class="section-star">✦</span>
+            <h2>O Que Eu Faço</h2>
+        </div>
+        <p class="section-intro">Desenvolvedor web full-stack especializado em criar sites de alta conversão. Do design à implementação, transformo ideias em experiências digitais que geram resultados reais para o seu negócio.</p>
+
+        <div class="services-list">
+            <div class="service-row">
+                <span class="service-title">Desenvolvimento Web</span>
+                <div class="service-tags">
+                    <span>Landing Pages</span>
+                    <span>E-commerce (WooCommerce/Shopify)</span>
+                    <span>Sites Institucionais</span>
+                    <span>WordPress Custom</span>
+                </div>
+            </div>
+            <div class="service-row">
+                <span class="service-title">Design de Interface</span>
+                <div class="service-tags">
+                    <span>UI/UX Design</span>
+                    <span>Protótipos Figma</span>
+                    <span>Design Responsivo</span>
+                    <span>Wireframes</span>
+                </div>
+            </div>
+            <div class="service-row">
+                <span class="service-title">Identidade Visual</span>
+                <div class="service-tags">
+                    <span>Logos</span>
+                    <span>Guia de Marca</span>
+                    <span>Materiais Gráficos</span>
+                    <span>Social Media</span>
+                </div>
+            </div>
+            <div class="service-row">
+                <span class="service-title">Edição de Vídeo</span>
+                <div class="service-tags">
+                    <span>Vídeos Comerciais</span>
+                    <span>Reels & Stories</span>
+                    <span>Motion Graphics</span>
+                    <span>Cortes e Finalizações</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="skills">
+        <div class="section-header">
+            <span class="section-star">✦</span>
+            <h2>Habilidades</h2>
+        </div>
+
+        <div class="skills-tags">
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">WordPress</span>
+            <span class="skill-tag">Shopify</span>
+            <span class="skill-tag">WooCommerce</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Elementor/Framer</span>
+            <span class="skill-tag">Design Responsivo</span>
+            <span class="skill-tag">Identidade Visual</span>
+            <span class="skill-tag">Edição de Vídeo</span>
+            <span class="skill-tag">After Effects</span>
+            <span class="skill-tag">Premiere Pro</span>
+            <span class="skill-tag">Photoshop</span>
+            <span class="skill-tag">Illustrator</span>
+            <span class="skill-tag">+ Mais</span>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="experience">
+        <div class="section-header">
+            <span class="section-star">✦</span>
+            <h2>Experiência</h2>
+        </div>
+
+        <div class="experience-list">
+            <div class="experience-row">
+                <span class="exp-role">Web Designer & Developer</span>
+                <div class="exp-details">
+                    <span class="exp-company">Swerve Agency</span>
+                    <span class="exp-period">Fev 2025 - Presente</span>
+                </div>
+            </div>
+            <div class="experience-row">
+                <span class="exp-role">Designer Gráfico</span>
+                <div class="exp-details">
+                    <span class="exp-company">Associação Amazonense de Municípios - AAM</span>
+                    <span class="exp-period">Jan 2023 - 2025</span>
+                </div>
+            </div>
+            <div class="experience-row">
+                <span class="exp-role">Assessor de Marketing</span>
+                <div class="exp-details">
+                    <span class="exp-company">Prefeitura Municipal de Rio Preto da Eva</span>
+                    <span class="exp-period">Jan 2019 - Jul 2025</span>
+                </div>
+            </div>
+            <div class="experience-row">
+                <span class="exp-role">Designer e Social Media</span>
+                <div class="exp-details">
+                    <span class="exp-company">Parintins Futebol Clube</span>
+                    <span class="exp-period">Dez 2021 - Out 2024</span>
+                </div>
+            </div>
+            <div class="experience-row">
+                <span class="exp-role">Designer Gráfico</span>
+                <div class="exp-details">
+                    <span class="exp-company">Flex</span>
+                    <span class="exp-period">Mai 2024 - Ago 2024</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- FEEDBACKS -->
     <section id="feedbacks" class="feedbacks">
-        <div class="badge center">
-            <span class="star">✦</span> Feedbacks <span class="star">✦</span>
+        <div class="feedbacks-header">
+            <div class="badge center">
+                <span class="star">&#10022;</span>
+                <span class="badge-text">Feedbacks</span>
+                <span class="star">&#10022;</span>
+            </div>
+
+            <h2>O Que os Clientes Dizem</h2>
+            <p class="section-desc">Feedbacks que me motivam a continuar a oferecer o melhor<br>servico todos os dias.</p>
         </div>
-        
-        <h2>O Que os Clientes Dizem</h2>
-        <p class="section-desc">Feedbacks que me motivam a continuar a oferecer o melhor<br>serviço todos os dias.</p>
-        
+
         <div class="feedback-grid">
             <div class="feedback-card">
                 <div class="feedback-header">
@@ -88,9 +238,9 @@
                         <p>Swerve Agency</p>
                     </div>
                 </div>
-                <blockquote>"Todo o trabalho de design gráfico que ele fez pra mim até agora superou minhas expectativas. Recomendo de verdade!"</blockquote>
+                <blockquote>"Todo o trabalho de design grafico que ele fez pra mim ate agora superou minhas expectativas. Recomendo de verdade!"</blockquote>
             </div>
-            
+
             <div class="feedback-card">
                 <div class="feedback-header">
                     <img src="images/client2.jpg" alt="Anderson Sousa">
@@ -99,32 +249,34 @@
                         <p>Presidente da AAM</p>
                     </div>
                 </div>
-                <blockquote>"Extremamente profissional e atencioso, consegue transformar ideias em resultados incríveis."</blockquote>
+                <blockquote>"Extremamente profissional e atencioso, consegue transformar ideias em resultados incriveis."</blockquote>
             </div>
-            
+
             <div class="feedback-card">
                 <div class="feedback-header">
                     <img src="images/client3.jpg" alt="Guilherme de Freitas">
                     <div>
                         <h4>Guilherme de Freitas</h4>
-                        <p>Tráfego Pago</p>
+                        <p>Trafego Pago</p>
                     </div>
                 </div>
-                <blockquote>"Trabalho impecável, sempre entregando soluções criativas e de alta qualidade!"</blockquote>
+                <blockquote>"Trabalho impecavel, sempre entregando solucoes criativas e de alta qualidade!"</blockquote>
             </div>
         </div>
     </section>
 
+    <!-- SEPARADOR VERDE -->
+    <div class="separator"></div>
+
     <!-- CTA FINAL -->
     <section id="contato" class="cta-final">
-        <h2>Quer dar vida à sua visão?</h2>
+        <h2>Quer dar vida a sua visao?</h2>
         <p>Vamos fazer acontecer!</p>
-        
-        <a href="#" class="btn-animated">
+
+        <a href="https://wa.me/5592993642260" target="_blank" class="btn-animated">
             <span class="btn-text">Envie Uma Mensagem</span>
-            <span class="btn-border"></span>
         </a>
-        
+
         <div class="chat-info">
             <span>Converse com Diogo</span>
             <img src="images/profile-small.jpg" alt="Diogo">
@@ -134,15 +286,28 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <p>© Diogo Brito, 2025</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-            </div>
+            <p>&copy; Diogo Brito, 2025</p>
             <div class="footer-icons">
-                <a href="#"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                <a href="#"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                <a href="#"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+                <a href="https://www.instagram.com/diogobritodesign/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/diogobritodesign/" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="mailto:hello@diogobrito.design" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-10 6L2 7"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>

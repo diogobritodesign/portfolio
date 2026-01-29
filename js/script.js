@@ -1,11 +1,157 @@
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+}
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
     });
 });
 
-console.log('%c Design To Impress ', 'background: #00FFA3; color: #000; font-size: 16px; padding: 8px; font-weight: bold;');
+// ===== CUSTOM CURSOR =====
+const cursor = document.querySelector('.cursor');
+
+if (cursor) {
+    // Move cursor
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Pointer effect on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .btn-animated, .skill-tag, .feedback-card, .nav-menu a, .highlight-pill');
+
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('pointer');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('pointer');
+        });
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+    });
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Add fade-in class to elements and observe them
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero elements
+    const heroElements = document.querySelectorAll('.hero .badge, .hero-title, .hero-subtitle, .hero .btn-animated');
+    heroElements.forEach((el, i) => {
+        el.classList.add('fade-in', `stagger-${i + 1}`);
+        observer.observe(el);
+    });
+
+    // Sobre section
+    const sobreLines = document.querySelectorAll('.sobre-line');
+    sobreLines.forEach((el, i) => {
+        el.classList.add('fade-in', `stagger-${i + 1}`);
+        observer.observe(el);
+    });
+
+    // Section headers
+    const sectionHeaders = document.querySelectorAll('.section-header, .section-intro');
+    sectionHeaders.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    // Service rows
+    const serviceRows = document.querySelectorAll('.service-row');
+    serviceRows.forEach((el, i) => {
+        el.classList.add('fade-in', `stagger-${Math.min(i + 1, 5)}`);
+        observer.observe(el);
+    });
+
+    // Skills tags container
+    const skillsTags = document.querySelector('.skills-tags');
+    if (skillsTags) {
+        skillsTags.classList.add('fade-in');
+        observer.observe(skillsTags);
+    }
+
+    // Experience rows
+    const expRows = document.querySelectorAll('.experience-row');
+    expRows.forEach((el, i) => {
+        el.classList.add('fade-in', `stagger-${Math.min(i + 1, 5)}`);
+        observer.observe(el);
+    });
+
+    // Feedbacks
+    const feedbacksHeader = document.querySelector('.feedbacks-header');
+    if (feedbacksHeader) {
+        feedbacksHeader.classList.add('fade-in');
+        observer.observe(feedbacksHeader);
+    }
+
+    const feedbackCards = document.querySelectorAll('.feedback-card');
+    feedbackCards.forEach((el, i) => {
+        el.classList.add('fade-in', `stagger-${i + 1}`);
+        observer.observe(el);
+    });
+
+    // CTA section
+    const ctaElements = document.querySelectorAll('.cta-final h2, .cta-final > p, .cta-final .btn-animated, .chat-info');
+    ctaElements.forEach((el, i) => {
+        el.classList.add('fade-in', `stagger-${i + 1}`);
+        observer.observe(el);
+    });
+
+    // Trigger visible for elements already in viewport
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        });
+    }, 100);
+});
+
+console.log('%c Design To Impress ', 'background: #5DFF51; color: #000; font-size: 16px; padding: 8px; font-weight: bold;');

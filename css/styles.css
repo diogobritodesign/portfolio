@@ -711,7 +711,7 @@ h2 {
 
 .exp-role {
     font-family: 'Satoshi', sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     color: var(--white);
 }
@@ -754,7 +754,7 @@ h2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 16px;
+    padding: 2px 16px;
     background: var(--black);
     border: 1px solid rgba(255,255,255,0.25);
     border-radius: 50px;
@@ -767,7 +767,7 @@ h2 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 /* ===== FEEDBACKS ===== */
@@ -1188,7 +1188,7 @@ h2 {
     }
 
     .nav-icons-left {
-        gap: 10px;
+        gap: 5px;
     }
 
     .nav-icons-left svg {
@@ -1278,11 +1278,11 @@ h2 {
     }
 
     .highlight-pill {
-        padding: 4px 14px;
+        padding: 2px 14px;
     }
 
     .highlight-pill span {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .feedback-grid {
@@ -1383,7 +1383,7 @@ h2 {
     }
 
     .exp-role {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .exp-company {
@@ -1410,11 +1410,11 @@ h2 {
     }
 
     .highlight-pill {
-        padding: 3px 12px;
+        padding: 2px 12px;
     }
 
     .highlight-pill span {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     h2 {
@@ -1450,7 +1450,7 @@ h2 {
 
     /* Experiencia - Mobile Pequeno */
     .exp-role {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .exp-company {

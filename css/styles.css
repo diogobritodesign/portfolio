@@ -5,13 +5,61 @@
     box-sizing: border-box;
 }
 
+/* Global text breaking rules for better readability */
+body,
+p,
+h1, h2, h3, h4, h5, h6,
+span,
+div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
 html {
     overflow-x: hidden;
 }
 
 /* FONTES */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap');
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/satoshi/Satoshi-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/satoshi/Satoshi-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/satoshi/Satoshi-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    src: url('../fonts/bricolage-grotesque/BricolageGrotesque-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    src: url('../fonts/bricolage-grotesque/BricolageGrotesque-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
     --green: #5DFF51;
@@ -235,6 +283,8 @@ html {
 
 .nav-logo img {
     height: 32px;
+    width: 32px;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
@@ -1078,6 +1128,15 @@ h2 {
         gap: 24px;
     }
 
+    /* Reduce icon spacing on tablet */
+    .nav-icons-left {
+        gap: 12px;
+    }
+
+    .footer-icons {
+        gap: 12px;
+    }
+
     .hero-title {
         font-size: 56px;
     }
@@ -1128,7 +1187,7 @@ h2 {
     }
 
     .nav-icons-left {
-        gap: 16px;
+        gap: 10px;
     }
 
     .nav-icons-left svg {
@@ -1167,6 +1226,7 @@ h2 {
 
     .nav-logo img {
         height: 28px;
+        width: 28px;
     }
 
     .hero {
@@ -1250,6 +1310,11 @@ h2 {
         flex-direction: column;
         gap: 16px;
         text-align: center;
+    }
+
+    /* Reduce footer icon spacing on mobile */
+    .footer-icons {
+        gap: 10px;
     }
 
     /* O Que Eu Faco - Mobile */

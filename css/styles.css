@@ -284,6 +284,8 @@ html {
     min-height: 44px;
     justify-content: center;
     align-items: center;
+    font: inherit;
+    color: inherit;
 }
 
 .menu-toggle span {
@@ -1479,7 +1481,8 @@ h2 {
         display: block;
     }
     
-    * {
+    body,
+    body * {
         cursor: none !important;
     }
 }

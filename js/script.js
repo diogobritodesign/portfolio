@@ -38,7 +38,7 @@ function smoothScrollTo(element) {
     const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    const duration = 1200;
+    const duration = 400; // Reduced from 1200ms for quicker scroll
     let start = null;
 
     function easeInOutCubic(t) {

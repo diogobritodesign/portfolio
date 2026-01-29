@@ -432,7 +432,7 @@ html {
 }
 
 .hero-subtitle {
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-size: 24px;
     font-weight: 400;
     color: var(--white);
@@ -623,7 +623,7 @@ h2 {
 }
 
 .service-title {
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: var(--white);
@@ -710,7 +710,7 @@ h2 {
 }
 
 .exp-role {
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--white);
@@ -749,12 +749,12 @@ h2 {
     color: rgba(255,255,255,0.85);
 }
 
-/* Pills com borda simples e texto gradiente - PADDING MINIMO */
+/* Pills com borda simples e texto gradiente */
 .highlight-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 8px;
+    padding: 4px 16px;
     background: var(--black);
     border: 1px solid rgba(255,255,255,0.25);
     border-radius: 50px;
@@ -767,6 +767,7 @@ h2 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 500;
+    font-size: 16px;
 }
 
 /* ===== FEEDBACKS ===== */
@@ -1047,7 +1048,7 @@ h2 {
 }
 
 .cta-final > p {
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Satoshi', sans-serif;
     font-size: 18px;
     font-weight: 400;
     color: rgba(255,255,255,0.6);
@@ -1277,8 +1278,11 @@ h2 {
     }
 
     .highlight-pill {
-        padding: 0px 10px;
-        font-size: 14px;
+        padding: 4px 14px;
+    }
+
+    .highlight-pill span {
+        font-size: 15px;
     }
 
     .feedback-grid {
@@ -1406,8 +1410,11 @@ h2 {
     }
 
     .highlight-pill {
-        padding: 0px 8px;
-        font-size: 13px;
+        padding: 3px 12px;
+    }
+
+    .highlight-pill span {
+        font-size: 14px;
     }
 
     h2 {

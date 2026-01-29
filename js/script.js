@@ -4,8 +4,9 @@ const navMenu = document.getElementById('navMenu');
 
 if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isActive);
     });
 
     // Close menu when clicking a link
@@ -13,6 +14,7 @@ if (menuToggle && navMenu) {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 }

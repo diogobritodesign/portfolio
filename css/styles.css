@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 /* FONTES */
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap');
@@ -207,6 +211,10 @@ html {
     transition: color 0.3s;
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
 }
 
 .nav-icons-left a:hover {
@@ -214,8 +222,8 @@ html {
 }
 
 .nav-icons-left svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 .nav-logo {
@@ -249,6 +257,10 @@ html {
     font-size: 14px;
     font-weight: 400;
     transition: all 0.3s;
+    padding: 12px 8px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu a:hover {
@@ -265,6 +277,13 @@ html {
     gap: 5px;
     cursor: pointer;
     z-index: 1001;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu-toggle span {
@@ -375,7 +394,8 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 36px;
+    padding: 18px 40px;
+    min-height: 54px;
     background: transparent;
     color: var(--white);
     text-decoration: none;
@@ -1031,6 +1051,10 @@ h2 {
     transition: color 0.3s;
     display: flex;
     align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
 }
 
 .footer-icons a:hover {
@@ -1038,8 +1062,8 @@ h2 {
 }
 
 .footer-icons svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 /* ===== RESPONSIVE - TABLET ===== */
@@ -1364,6 +1388,77 @@ h2 {
     }
 }
 
+/* ===== RESPONSIVE - VERY SMALL MOBILE (320px) ===== */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .hero {
+        padding: 70px 16px 40px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .btn-animated {
+        padding: 16px 32px;
+        font-size: 14px;
+        min-height: 50px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    section {
+        padding: 50px 16px;
+    }
+
+    .sobre-line {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .section-header h2 {
+        font-size: 20px;
+    }
+
+    .service-title {
+        font-size: 16px;
+    }
+
+    .service-tags span {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+
+    .skill-tag {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .nav-menu {
+        width: 85%;
+    }
+
+    .feedback-card {
+        padding: 16px;
+    }
+
+    .cta-final h2 {
+        font-size: 20px;
+    }
+}
+
 /* ===== CUSTOM CURSOR ===== */
 .cursor {
     width: 12px;
@@ -1375,6 +1470,18 @@ h2 {
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease, width 0.1s ease, height 0.1s ease;
+    display: none;
+}
+
+/* Only show custom cursor on devices with hover support (desktop) */
+@media (hover: hover) and (pointer: fine) {
+    .cursor {
+        display: block;
+    }
+    
+    * {
+        cursor: none !important;
+    }
 }
 
 .cursor.pointer {
@@ -1409,11 +1516,6 @@ h2 {
 @keyframes shineGray {
     0% { background-position: 200% center; }
     100% { background-position: -200% center; }
-}
-
-/* Hide default cursor */
-* {
-    cursor: none !important;
 }
 
 /* ===== SCROLL ANIMATIONS ===== */

@@ -17,7 +17,7 @@ if (menuToggle && navMenu) {
     });
 }
 
-// Smooth scroll
+// Smooth scroll with easing
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -25,13 +25,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                smoothScrollTo(target);
             }
         }
     });
 });
+
+// Custom smooth scroll function with easing
+function smoothScrollTo(element) {
+    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1200;
+    let start = null;
+
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
 
 // ===== CUSTOM CURSOR =====
 const cursor = document.querySelector('.cursor');
@@ -44,7 +70,7 @@ if (cursor) {
     });
 
     // Pointer effect on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .btn-animated, .skill-tag, .feedback-card, .nav-menu a, .highlight-pill');
+    const interactiveElements = document.querySelectorAll('a, button, .btn-animated, .skill-tag, .feedback-container, .nav-menu a, .highlight-pill');
 
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
@@ -130,8 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(feedbacksHeader);
     }
 
-    const feedbackCards = document.querySelectorAll('.feedback-card');
-    feedbackCards.forEach((el, i) => {
+    const feedbackContainers = document.querySelectorAll('.feedback-container');
+    feedbackContainers.forEach((el, i) => {
         el.classList.add('fade-in', `stagger-${i + 1}`);
         observer.observe(el);
     });

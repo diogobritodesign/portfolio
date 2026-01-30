@@ -71,7 +71,7 @@ html {
 
 /* ===== BACKGROUND ANIMADO COM GRAIN E RAIOS DE LUZ ===== */
 body {
-    background: var(--black);
+    background-color: #000000;
     color: var(--white);
     font-family: 'Satoshi', sans-serif;
     font-weight: 400;
@@ -79,24 +79,14 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     
-    /* Grid pattern background */
-    --gap: 5em;
-    --line: 1px;
-    --color: rgba(255, 255, 255, 0.2);
-    
+    /* Diagonal striped pattern background */
     background-image: linear-gradient(
-        -90deg,
-        transparent calc(var(--gap) - var(--line)),
-        var(--color) calc(var(--gap) - var(--line) + 1px),
-        var(--color) var(--gap)
-      ),
-      linear-gradient(
-        0deg,
-        transparent calc(var(--gap) - var(--line)),
-        var(--color) calc(var(--gap) - var(--line) + 1px),
-        var(--color) var(--gap)
-      );
-    background-size: var(--gap) var(--gap);
+        32deg,
+        rgba(8, 8, 8, 0.35) 30px,
+        transparent
+    );
+    background-size: 60px 60px;
+    background-position: -5px -5px;
 }
 
 /* Grain/noise texture overlay */

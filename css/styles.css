@@ -674,6 +674,72 @@ h2 {
     margin-top: 40px;
 }
 
+/* Skill tag container for tilt effect */
+.skill-tag-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Skill tag canvas with 3D perspective and tracker grid */
+.skill-tag-canvas {
+    perspective: 800px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "tr-1 tr-2 tr-3 tr-4 tr-5"
+        "tr-6 tr-7 tr-8 tr-9 tr-10"
+        "tr-11 tr-12 tr-13 tr-14 tr-15"
+        "tr-16 tr-17 tr-18 tr-19 tr-20"
+        "tr-21 tr-22 tr-23 tr-24 tr-25";
+}
+
+/* Trackers for skill tags (same as feedback cards) */
+.skill-tag-container .tracker {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+}
+
+.skill-tag-container .tracker:hover {
+    cursor: pointer;
+}
+
+/* 3D tilt effects for skill tags (same values as feedback cards) */
+.skill-tag-container .tr-1:hover ~ .skill-tag { transform: rotateX(10deg) rotateY(-5deg); }
+.skill-tag-container .tr-2:hover ~ .skill-tag { transform: rotateX(10deg) rotateY(-2.5deg); }
+.skill-tag-container .tr-3:hover ~ .skill-tag { transform: rotateX(10deg) rotateY(0deg); }
+.skill-tag-container .tr-4:hover ~ .skill-tag { transform: rotateX(10deg) rotateY(2.5deg); }
+.skill-tag-container .tr-5:hover ~ .skill-tag { transform: rotateX(10deg) rotateY(5deg); }
+.skill-tag-container .tr-6:hover ~ .skill-tag { transform: rotateX(5deg) rotateY(-5deg); }
+.skill-tag-container .tr-7:hover ~ .skill-tag { transform: rotateX(5deg) rotateY(-2.5deg); }
+.skill-tag-container .tr-8:hover ~ .skill-tag { transform: rotateX(5deg) rotateY(0deg); }
+.skill-tag-container .tr-9:hover ~ .skill-tag { transform: rotateX(5deg) rotateY(2.5deg); }
+.skill-tag-container .tr-10:hover ~ .skill-tag { transform: rotateX(5deg) rotateY(5deg); }
+.skill-tag-container .tr-11:hover ~ .skill-tag { transform: rotateX(0deg) rotateY(-5deg); }
+.skill-tag-container .tr-12:hover ~ .skill-tag { transform: rotateX(0deg) rotateY(-2.5deg); }
+.skill-tag-container .tr-13:hover ~ .skill-tag { transform: rotateX(0deg) rotateY(0deg); }
+.skill-tag-container .tr-14:hover ~ .skill-tag { transform: rotateX(0deg) rotateY(2.5deg); }
+.skill-tag-container .tr-15:hover ~ .skill-tag { transform: rotateX(0deg) rotateY(5deg); }
+.skill-tag-container .tr-16:hover ~ .skill-tag { transform: rotateX(-5deg) rotateY(-5deg); }
+.skill-tag-container .tr-17:hover ~ .skill-tag { transform: rotateX(-5deg) rotateY(-2.5deg); }
+.skill-tag-container .tr-18:hover ~ .skill-tag { transform: rotateX(-5deg) rotateY(0deg); }
+.skill-tag-container .tr-19:hover ~ .skill-tag { transform: rotateX(-5deg) rotateY(2.5deg); }
+.skill-tag-container .tr-20:hover ~ .skill-tag { transform: rotateX(-5deg) rotateY(5deg); }
+.skill-tag-container .tr-21:hover ~ .skill-tag { transform: rotateX(-10deg) rotateY(-5deg); }
+.skill-tag-container .tr-22:hover ~ .skill-tag { transform: rotateX(-10deg) rotateY(-2.5deg); }
+.skill-tag-container .tr-23:hover ~ .skill-tag { transform: rotateX(-10deg) rotateY(0deg); }
+.skill-tag-container .tr-24:hover ~ .skill-tag { transform: rotateX(-10deg) rotateY(2.5deg); }
+.skill-tag-container .tr-25:hover ~ .skill-tag { transform: rotateX(-10deg) rotateY(5deg); }
+
+/* Brightness increase on hover (like feedback cards) */
+.skill-tag-container .tracker:hover ~ .skill-tag {
+    filter: brightness(1.1);
+}
+
 .skill-tag {
     display: inline-flex;
     padding: 10px 20px;
@@ -721,6 +787,28 @@ h2 {
 
 .skill-tag:hover::before,
 .skill-tag:hover::after {
+    opacity: 1;
+}
+
+/* Tag glare effect (like feedback card glare) */
+.skill-tag .tag-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
+    border-radius: 50px;
+}
+
+.skill-tag-container:hover .tag-glare {
     opacity: 1;
 }
 

@@ -1,7 +1,7 @@
 // ===== CONFIGURATION =====
 const CONFIG = {
     SCROLL_OFFSETS: {
-        DESKTOP: 200,
+        DESKTOP: 100,
         TABLET: 100,
         MOBILE: 50
     },
@@ -71,7 +71,9 @@ if (menuToggle && navMenu) {
 
     // Use event delegation for menu links (more efficient)
     navMenu.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
+        // Check if clicked element is a link or inside menu-links
+        const link = e.target.closest('.menu-links a');
+        if (link) {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
             menuToggle.setAttribute('aria-expanded', 'false');
@@ -126,13 +128,11 @@ document.addEventListener('click', (e) => {
 const cursor = document.querySelector('.cursor');
 
 if (cursor) {
-    // Debounced cursor movement for better performance
-    const moveCursor = debounce((e) => {
+    // Direct cursor movement for smooth tracking (no debounce to avoid stuttering)
+    document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
-    }, CONFIG.DEBOUNCE_DELAY);
-
-    document.addEventListener('mousemove', moveCursor, { passive: true });
+    }, { passive: true });
 
     // Use event delegation for pointer effects (more efficient)
     const interactiveSelectors = 'a, button, .btn-animated, .skill-tag, .feedback-container, .nav-menu a, .highlight-pill';

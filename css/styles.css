@@ -300,6 +300,16 @@ html {
     gap: 40px;
 }
 
+.nav-menu .menu-logo,
+.nav-menu .menu-social {
+    display: none; /* Hidden on desktop */
+}
+
+.nav-menu .menu-links {
+    display: flex;
+    gap: 40px;
+}
+
 .nav-menu a {
     color: var(--white);
     text-decoration: none;
@@ -674,6 +684,44 @@ h2 {
     font-size: 14px;
     color: rgba(255,255,255,0.7);
     transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rotating border effect like feedback cards */
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50px;
+    padding: 1px;
+    background: conic-gradient(from var(--angle, 0deg), var(--green) 0%, transparent 15%, transparent 85%, var(--green) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateBorder 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+/* Glow behind tag */
+.skill-tag::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(ellipse at center, rgba(93, 255, 81, 0.1) 0%, transparent 70%);
+    border-radius: 50px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-tag:hover::before,
+.skill-tag:hover::after {
+    opacity: 1;
 }
 
 .skill-tag:hover {
@@ -682,6 +730,7 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transform: translateY(-2px);
 }
 
 /* ===== EXPERIENCIA ===== */
@@ -1125,13 +1174,99 @@ h2 {
         padding: 0 30px;
     }
 
-    .nav-menu {
-        gap: 24px;
+    /* Hide social icons on tablet, move to menu */
+    .nav-icons-left {
+        display: none;
     }
 
-    /* Reduce icon spacing on tablet */
-    .nav-icons-left {
-        gap: 12px;
+    /* Move logo to left on tablet */
+    .nav-logo {
+        position: static;
+        transform: none;
+        order: 1;
+    }
+
+    /* Show menu toggle */
+    .menu-toggle {
+        display: flex;
+        order: 3;
+    }
+
+    /* Restructure menu for tablet */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 60px 30px 40px;
+        gap: 0;
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* Show logo in menu */
+    .nav-menu .menu-logo {
+        display: block;
+        margin-bottom: 60px;
+    }
+
+    .nav-menu .menu-logo img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+
+    /* Menu links container */
+    .nav-menu .menu-links {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .nav-menu .menu-links a {
+        font-size: 20px;
+    }
+
+    /* Show social icons in menu */
+    .nav-menu .menu-social {
+        display: flex;
+        gap: 24px;
+        margin-top: auto;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-menu .menu-social a {
+        color: rgba(255,255,255,0.4);
+        transition: color 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px;
+    }
+
+    .nav-menu .menu-social a:hover {
+        color: var(--green);
+    }
+
+    .nav-menu .menu-social svg {
+        width: 24px;
+        height: 24px;
     }
 
     .footer-icons {
@@ -1191,53 +1326,29 @@ h2 {
         height: 80px;
     }
 
+    /* Hide social icons on mobile, move to menu */
     .nav-icons-left {
-        gap: 5px;
+        display: none;
     }
 
-    .nav-icons-left a {
-        padding: 4px;
-        min-width: 40px;
-        min-height: 40px;
-    }
-
-    .nav-icons-left svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(40px);
-        -webkit-backdrop-filter: blur(40px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 32px;
-        transition: right 0.3s ease;
-        z-index: 1000;
-    }
-
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu a {
-        font-size: 18px;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
+    /* Logo already positioned left from tablet styles */
     .nav-logo img {
         height: 28px;
         width: 28px;
+    }
+
+    /* Menu structure inherited from tablet, adjust for mobile */
+    .nav-menu {
+        width: 80%;
+    }
+
+    .nav-menu .menu-links a {
+        font-size: 18px;
+    }
+
+    .nav-menu .menu-social svg {
+        width: 20px;
+        height: 20px;
     }
 
     .hero {

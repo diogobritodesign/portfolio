@@ -683,7 +683,11 @@ h2 {
 /* Skill tag canvas with 3D perspective and tracker grid */
 .skill-tag-canvas {
     perspective: 800px;
-    position: relative;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;

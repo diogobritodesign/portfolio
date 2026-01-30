@@ -1846,3 +1846,257 @@ h2 {
 .stagger-3 { transition-delay: 0.3s; }
 .stagger-4 { transition-delay: 0.4s; }
 .stagger-5 { transition-delay: 0.5s; }
+
+/* ===== BADGE WITH 3D EFFECTS ===== */
+.badge-container {
+    display: inline-block;
+    position: relative;
+}
+
+.badge-container .skill-tag-canvas {
+    perspective: 800px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.badge-container .tracker {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+}
+
+.badge-container .tracker:hover {
+    cursor: pointer;
+}
+
+/* 3D tilt effects for badge */
+.badge-container .tr-1:hover ~ .badge { transform: rotateX(10deg) rotateY(-5deg); }
+.badge-container .tr-2:hover ~ .badge { transform: rotateX(10deg) rotateY(-2.5deg); }
+.badge-container .tr-3:hover ~ .badge { transform: rotateX(10deg) rotateY(0deg); }
+.badge-container .tr-4:hover ~ .badge { transform: rotateX(10deg) rotateY(2.5deg); }
+.badge-container .tr-5:hover ~ .badge { transform: rotateX(10deg) rotateY(5deg); }
+.badge-container .tr-6:hover ~ .badge { transform: rotateX(5deg) rotateY(-5deg); }
+.badge-container .tr-7:hover ~ .badge { transform: rotateX(5deg) rotateY(-2.5deg); }
+.badge-container .tr-8:hover ~ .badge { transform: rotateX(5deg) rotateY(0deg); }
+.badge-container .tr-9:hover ~ .badge { transform: rotateX(5deg) rotateY(2.5deg); }
+.badge-container .tr-10:hover ~ .badge { transform: rotateX(5deg) rotateY(5deg); }
+.badge-container .tr-11:hover ~ .badge { transform: rotateX(0deg) rotateY(-5deg); }
+.badge-container .tr-12:hover ~ .badge { transform: rotateX(0deg) rotateY(-2.5deg); }
+.badge-container .tr-13:hover ~ .badge { transform: rotateX(0deg) rotateY(0deg); }
+.badge-container .tr-14:hover ~ .badge { transform: rotateX(0deg) rotateY(2.5deg); }
+.badge-container .tr-15:hover ~ .badge { transform: rotateX(0deg) rotateY(5deg); }
+.badge-container .tr-16:hover ~ .badge { transform: rotateX(-5deg) rotateY(-5deg); }
+.badge-container .tr-17:hover ~ .badge { transform: rotateX(-5deg) rotateY(-2.5deg); }
+.badge-container .tr-18:hover ~ .badge { transform: rotateX(-5deg) rotateY(0deg); }
+.badge-container .tr-19:hover ~ .badge { transform: rotateX(-5deg) rotateY(2.5deg); }
+.badge-container .tr-20:hover ~ .badge { transform: rotateX(-5deg) rotateY(5deg); }
+.badge-container .tr-21:hover ~ .badge { transform: rotateX(-10deg) rotateY(-5deg); }
+.badge-container .tr-22:hover ~ .badge { transform: rotateX(-10deg) rotateY(-2.5deg); }
+.badge-container .tr-23:hover ~ .badge { transform: rotateX(-10deg) rotateY(0deg); }
+.badge-container .tr-24:hover ~ .badge { transform: rotateX(-10deg) rotateY(2.5deg); }
+.badge-container .tr-25:hover ~ .badge { transform: rotateX(-10deg) rotateY(5deg); }
+
+/* Brightness increase on hover */
+.badge-container .tracker:hover ~ .badge {
+    filter: brightness(1.1);
+}
+
+/* Update badge styles for 10px font and 7px 14px padding */
+.badge-container .badge {
+    font-size: 10px;
+    padding: 7px 14px;
+    z-index: 0;
+    grid-column: 1 / 6;
+    grid-row: 1 / 6;
+}
+
+/* Rotating border effect for badge */
+.badge-container .badge::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50px;
+    padding: 1px;
+    background: conic-gradient(from var(--angle, 0deg), var(--green) 0%, transparent 15%, transparent 85%, var(--green) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateBorder 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+/* Glow behind badge */
+.badge-container .badge::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(ellipse at center, rgba(93, 255, 81, 0.1) 0%, transparent 70%);
+    border-radius: 50px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.badge-container .badge:hover::before,
+.badge-container .badge:hover::after {
+    opacity: 1;
+}
+
+/* Tag glare effect for badge */
+.badge-container .badge .tag-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
+    border-radius: 50px;
+}
+
+.badge-container:hover .badge .tag-glare {
+    opacity: 1;
+}
+
+/* ===== FEEDBACKS TITLE WITH 3D EFFECTS ===== */
+.feedbacks-title-container {
+    display: inline-block;
+    position: relative;
+}
+
+.feedbacks-title-container .skill-tag-canvas {
+    perspective: 800px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.feedbacks-title-container .tracker {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+}
+
+.feedbacks-title-container .tracker:hover {
+    cursor: pointer;
+}
+
+/* 3D tilt effects for feedbacks-title */
+.feedbacks-title-container .tr-1:hover ~ .feedbacks-title { transform: rotateX(10deg) rotateY(-5deg); }
+.feedbacks-title-container .tr-2:hover ~ .feedbacks-title { transform: rotateX(10deg) rotateY(-2.5deg); }
+.feedbacks-title-container .tr-3:hover ~ .feedbacks-title { transform: rotateX(10deg) rotateY(0deg); }
+.feedbacks-title-container .tr-4:hover ~ .feedbacks-title { transform: rotateX(10deg) rotateY(2.5deg); }
+.feedbacks-title-container .tr-5:hover ~ .feedbacks-title { transform: rotateX(10deg) rotateY(5deg); }
+.feedbacks-title-container .tr-6:hover ~ .feedbacks-title { transform: rotateX(5deg) rotateY(-5deg); }
+.feedbacks-title-container .tr-7:hover ~ .feedbacks-title { transform: rotateX(5deg) rotateY(-2.5deg); }
+.feedbacks-title-container .tr-8:hover ~ .feedbacks-title { transform: rotateX(5deg) rotateY(0deg); }
+.feedbacks-title-container .tr-9:hover ~ .feedbacks-title { transform: rotateX(5deg) rotateY(2.5deg); }
+.feedbacks-title-container .tr-10:hover ~ .feedbacks-title { transform: rotateX(5deg) rotateY(5deg); }
+.feedbacks-title-container .tr-11:hover ~ .feedbacks-title { transform: rotateX(0deg) rotateY(-5deg); }
+.feedbacks-title-container .tr-12:hover ~ .feedbacks-title { transform: rotateX(0deg) rotateY(-2.5deg); }
+.feedbacks-title-container .tr-13:hover ~ .feedbacks-title { transform: rotateX(0deg) rotateY(0deg); }
+.feedbacks-title-container .tr-14:hover ~ .feedbacks-title { transform: rotateX(0deg) rotateY(2.5deg); }
+.feedbacks-title-container .tr-15:hover ~ .feedbacks-title { transform: rotateX(0deg) rotateY(5deg); }
+.feedbacks-title-container .tr-16:hover ~ .feedbacks-title { transform: rotateX(-5deg) rotateY(-5deg); }
+.feedbacks-title-container .tr-17:hover ~ .feedbacks-title { transform: rotateX(-5deg) rotateY(-2.5deg); }
+.feedbacks-title-container .tr-18:hover ~ .feedbacks-title { transform: rotateX(-5deg) rotateY(0deg); }
+.feedbacks-title-container .tr-19:hover ~ .feedbacks-title { transform: rotateX(-5deg) rotateY(2.5deg); }
+.feedbacks-title-container .tr-20:hover ~ .feedbacks-title { transform: rotateX(-5deg) rotateY(5deg); }
+.feedbacks-title-container .tr-21:hover ~ .feedbacks-title { transform: rotateX(-10deg) rotateY(-5deg); }
+.feedbacks-title-container .tr-22:hover ~ .feedbacks-title { transform: rotateX(-10deg) rotateY(-2.5deg); }
+.feedbacks-title-container .tr-23:hover ~ .feedbacks-title { transform: rotateX(-10deg) rotateY(0deg); }
+.feedbacks-title-container .tr-24:hover ~ .feedbacks-title { transform: rotateX(-10deg) rotateY(2.5deg); }
+.feedbacks-title-container .tr-25:hover ~ .feedbacks-title { transform: rotateX(-10deg) rotateY(5deg); }
+
+/* Brightness increase on hover */
+.feedbacks-title-container .tracker:hover ~ .feedbacks-title {
+    filter: brightness(1.1);
+}
+
+/* Update feedbacks-title styles for 10px font and 7px 14px padding */
+.feedbacks-title-container .feedbacks-title {
+    font-size: 10px;
+    padding: 7px 14px;
+    z-index: 0;
+    grid-column: 1 / 6;
+    grid-row: 1 / 6;
+}
+
+/* Rotating border effect for feedbacks-title */
+.feedbacks-title-container .feedbacks-title::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 50px;
+    padding: 1px;
+    background: conic-gradient(from var(--angle, 0deg), var(--green) 0%, transparent 15%, transparent 85%, var(--green) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateBorder 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+/* Glow behind feedbacks-title */
+.feedbacks-title-container .feedbacks-title::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(ellipse at center, rgba(93, 255, 81, 0.1) 0%, transparent 70%);
+    border-radius: 50px;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.feedbacks-title-container .feedbacks-title:hover::before,
+.feedbacks-title-container .feedbacks-title:hover::after {
+    opacity: 1;
+}
+
+/* Tag glare effect for feedbacks-title */
+.feedbacks-title-container .feedbacks-title .tag-glare {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 300ms;
+    pointer-events: none;
+    border-radius: 50px;
+}
+
+.feedbacks-title-container:hover .feedbacks-title .tag-glare {
+    opacity: 1;
+}

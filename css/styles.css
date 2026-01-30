@@ -395,7 +395,7 @@ html {
     background-size: 30px 30px; /* 50% zoom (was 60px) */
     background-position: -5px -5px;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0; /* Behind hero content */
 }
 
 /* Foto SEM borda */

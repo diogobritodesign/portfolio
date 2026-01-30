@@ -1,0 +1,15 @@
+127.0.0.1 - - [30/Jan/2026 01:34:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:08] "GET /css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:08] "GET /images/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:08] "GET /images/profile.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:08] "GET /js/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:09] "GET /fonts/satoshi/Satoshi-Regular.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:09] "GET /fonts/bricolage-grotesque/BricolageGrotesque-Bold.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:09] "GET /fonts/satoshi/Satoshi-Bold.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:09] "GET /fonts/satoshi/Satoshi-Medium.woff2 HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:09] "GET /fonts/bricolage-grotesque/BricolageGrotesque-Regular.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:09] "GET /images/logo.png HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:19] "GET /images/client1.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:19] "GET /images/client2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jan/2026 01:34:19] "GET /images/client3.jpg HTTP/1.1" 200 -

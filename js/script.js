@@ -35,7 +35,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Custom smooth scroll function with easing
 function smoothScrollTo(element) {
-    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    // Calculate offset based on viewport width
+    let offset = 200; // Desktop default
+    if (window.innerWidth <= 768) {
+        offset = 50; // Mobile
+    } else if (window.innerWidth <= 1024) {
+        offset = 100; // Tablet
+    }
+    
+    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     const duration = 400; // Reduced from 1200ms for quicker scroll

@@ -1154,6 +1154,10 @@ h2 {
         font-size: 20px;
     }
 
+    .highlight-pill span {
+        font-size: 20px;
+    }
+
     /* O Que Eu Faco - Tablet */
     .what-i-do {
         padding: 80px 20px;
@@ -1189,6 +1193,12 @@ h2 {
 
     .nav-icons-left {
         gap: 5px;
+    }
+
+    .nav-icons-left a {
+        padding: 4px;
+        min-width: 40px;
+        min-height: 40px;
     }
 
     .nav-icons-left svg {
@@ -1282,7 +1292,7 @@ h2 {
     }
 
     .highlight-pill span {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .feedback-grid {
@@ -1414,7 +1424,7 @@ h2 {
     }
 
     .highlight-pill span {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     h2 {
